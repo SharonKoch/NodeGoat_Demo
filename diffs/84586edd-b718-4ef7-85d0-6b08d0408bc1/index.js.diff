@@ -93,11 +93,11 @@
 @@ -89,1 +90,8 @@
 -            environmentalScripts
 +    const resolvedPath = path.resolve(page);
-+    const expectedDir = path.resolve(process.cwd()); // TODO: Change this to your expected directory
++    const expectedDir = path.resolve(__dirname, 'tutorial'); // TODO: Change this to your expected directory
 +    if (!resolvedPath.startsWith(expectedDir)) {
-+        throw new Error('Invalid path');
++        throw new Error('Invalid page');
 +    }
-+    return res.render(`tutorial/${page}`, {
++    return res.render(resolvedPath, {
 +        environmentalScripts
 +    });
          });
