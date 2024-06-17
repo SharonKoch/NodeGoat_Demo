@@ -89,9 +89,8 @@
          const {
              page
          } = req.params
-         return res.render(`tutorial/${page}`, {
-@@ -89,1 +90,8 @@
--            environmentalScripts
+@@ -88,1 +89,8 @@
+-        return res.render(`tutorial/${page}`, {
 +    const resolvedPath = path.resolve(page);
 +    const expectedDir = path.resolve(__dirname, 'tutorial'); // TODO: Change this to your expected directory
 +    if (!resolvedPath.startsWith(expectedDir)) {
@@ -100,6 +99,7 @@
 +    return res.render(resolvedPath, {
 +        environmentalScripts
 +    });
+             environmentalScripts
          });
      });
  
